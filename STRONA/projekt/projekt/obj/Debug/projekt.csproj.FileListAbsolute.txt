@@ -1,0 +1,8 @@
+C:\Users\MKS\Desktop\Aplikacje internetowe\PROJEKT\projekt\projekt\bin\projekt.dll
+C:\Users\MKS\Desktop\Aplikacje internetowe\PROJEKT\projekt\projekt\bin\projekt.pdb
+C:\Users\MKS\Desktop\Aplikacje internetowe\PROJEKT\projekt\projekt\obj\Debug\projekt.dll
+C:\Users\MKS\Desktop\Aplikacje internetowe\PROJEKT\projekt\projekt\obj\Debug\projekt.pdb
+C:\Users\MKS\Desktop\SEMESTR IX\Aplikacje internetowe\PROJEKT\projekt\projekt\bin\projekt.dll
+C:\Users\MKS\Desktop\SEMESTR IX\Aplikacje internetowe\PROJEKT\projekt\projekt\bin\projekt.pdb
+C:\Users\MKS\Desktop\SEMESTR IX\Aplikacje internetowe\PROJEKT\projekt\projekt\obj\Debug\projekt.dll
+C:\Users\MKS\Desktop\SEMESTR IX\Aplikacje internetowe\PROJEKT\projekt\projekt\obj\Debug\projekt.pdb
