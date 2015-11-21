@@ -44,6 +44,14 @@
         
         <div>
 
+            Dodaj klasy<br />
+            Nazwa:
+            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+            <br />
+            <asp:Button ID="Button1" runat="server" Text="Dodaj" />
+            <br />
+            <asp:Label ID="Label9" runat="server" ForeColor="Red" Text="*" Visible="False"></asp:Label>
+
         </div>
     </div>
     </form>
