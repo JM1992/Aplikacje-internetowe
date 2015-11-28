@@ -1,0 +1,15 @@
+﻿body 
+{
+    background-color: Gray;
+    color: Black;
+    font-size: 16px;
+    font-family: Verdana;
+}
+
+
+.container
+{
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}

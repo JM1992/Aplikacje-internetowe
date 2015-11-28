@@ -1,0 +1,65 @@
+﻿body
+{
+    background-color: Gray;
+    color: Black;
+    font-size: 24px;
+    font-family: Verdana;
+}
+
+#container
+{
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#content
+{
+    width: 500px;
+    height: 230px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 180px;
+    background-color: Lightgray;
+    border-radius: 30px;
+}
+
+#zaloguj
+{
+    height: 30px;
+    text-align: center;
+    font-size: 26px;
+    padding: 10px;
+}
+
+#login
+{
+    height: 30px;
+    text-align: center;
+    padding: 5px;
+    font-size: 19px;
+}
+
+#haslo
+{
+    height: 30px;
+    text-align: center;
+    padding: 5px;
+    font-size: 19px;
+}
+
+#przycisk
+{
+    height: 30px;
+    text-align: center;
+    padding: 5px;
+    font-size: 19px;
+}
+
+#error
+{
+    height: 30px;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+}

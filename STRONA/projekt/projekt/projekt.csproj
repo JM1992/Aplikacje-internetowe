@@ -54,11 +54,13 @@
     <Content Include="dyrektor.aspx" />
     <Content Include="dyrektorklasy.aspx" />
     <Content Include="dyrektorlekcje.aspx" />
+    <Content Include="dyrektorprzedmioty.aspx" />
     <Content Include="dyrektoruczniowie.aspx" />
     <Content Include="Glowna.aspx" />
     <Content Include="haslo.aspx" />
     <Content Include="nauczyciel.aspx" />
-    <Content Include="StyleSheet1.css" />
+    <Content Include="glowna.css" />
+    <Content Include="Style.css" />
     <Content Include="uczen.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -90,6 +92,13 @@
     </Compile>
     <Compile Include="dyrektorlekcje.aspx.designer.cs">
       <DependentUpon>dyrektorlekcje.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dyrektorprzedmioty.aspx.cs">
+      <DependentUpon>dyrektorprzedmioty.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dyrektorprzedmioty.aspx.designer.cs">
+      <DependentUpon>dyrektorprzedmioty.aspx</DependentUpon>
     </Compile>
     <Compile Include="dyrektoruczniowie.aspx.cs">
       <DependentUpon>dyrektoruczniowie.aspx</DependentUpon>

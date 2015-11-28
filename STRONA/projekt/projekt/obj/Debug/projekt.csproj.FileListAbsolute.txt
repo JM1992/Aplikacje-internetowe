@@ -10,3 +10,7 @@ C:\Users\MKS\Desktop\SEMESTR IX\Aplikacje internetowe\STRONA\projekt\projekt\bin
 C:\Users\MKS\Desktop\SEMESTR IX\Aplikacje internetowe\STRONA\projekt\projekt\bin\projekt.pdb
 C:\Users\MKS\Desktop\SEMESTR IX\Aplikacje internetowe\STRONA\projekt\projekt\obj\Debug\projekt.dll
 C:\Users\MKS\Desktop\SEMESTR IX\Aplikacje internetowe\STRONA\projekt\projekt\obj\Debug\projekt.pdb
+C:\Users\MKS\Documents\GitHub\Aplikacje-internetowe\STRONA\projekt\projekt\bin\projekt.dll
+C:\Users\MKS\Documents\GitHub\Aplikacje-internetowe\STRONA\projekt\projekt\bin\projekt.pdb
+C:\Users\MKS\Documents\GitHub\Aplikacje-internetowe\STRONA\projekt\projekt\obj\Debug\projekt.dll
+C:\Users\MKS\Documents\GitHub\Aplikacje-internetowe\STRONA\projekt\projekt\obj\Debug\projekt.pdb

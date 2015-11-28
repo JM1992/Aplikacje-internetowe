@@ -9,11 +9,11 @@ using System.Configuration;
 
 namespace projekt
 {
-    public partial class dyrektoruczniowie : System.Web.UI.Page
+    public partial class dyrektorprzedmioty : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Label4.Visible = false;
+            Label9.Visible = false;
 
             if (Session["zalogowany"] != null)
             {
@@ -40,64 +40,46 @@ namespace projekt
             }
         }
 
-
-
-        protected void Dodaj_Click(object sender, EventArgs e)
+        protected void Button1_Click(object sender, EventArgs e)
         {
-            string imie, nazwisko, mail, login, haslo;
-      
-            imie = TextBoxImie.Text;
-            nazwisko = TextBoxNazwisko.Text;
-            mail = TextBoxEmail.Text;
-            login = TextBoxLogin.Text;
-            haslo = TextBoxHaslo.Text;
+            string nazwa;
+            nazwa = TextBoxPrzedmiot.Text;
+
             using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString))
             {
-                string polecenie = "SELECT count(*) FROM DYREKTOR, NAUCZYCIEL, UCZEN WHERE DYREKTOR.Login=@login OR NAUCZYCIEL.Login=@login OR UCZEN.Login=@login";
+                string polecenie = "SELECT count(*) FROM PRZEDMIOT WHERE Nazwa=@nazwa";
                 SqlCommand cmd = new SqlCommand(polecenie, con);
-                cmd.Parameters.AddWithValue("@login", login);
+                cmd.Parameters.AddWithValue("@nazwa", nazwa);
                 con.Open();
                 int wynik = (int)cmd.ExecuteScalar();
                 con.Close();
                 if (wynik == 0)
                 {
-                    polecenie = "INSERT INTO UCZEN (Imie, Nazwisko, Email, Login, Haslo) VALUES (@imie, @nazwisko, @mail, @login, @haslo)";
+                    polecenie = "INSERT INTO PRZEDMIOT (Nazwa) VALUES (@nazwa)";
                     cmd = new SqlCommand(polecenie, con);
-                    cmd.Parameters.AddWithValue("@imie", imie);
-                    cmd.Parameters.AddWithValue("@nazwisko", nazwisko);
-                    cmd.Parameters.AddWithValue("@mail", mail);
-                    cmd.Parameters.AddWithValue("@login", login);
-                    cmd.Parameters.AddWithValue("@haslo", haslo);
+                    cmd.Parameters.AddWithValue("@nazwa", nazwa);
                     con.Open();
                     wynik = cmd.ExecuteNonQuery();
                     con.Close();
                     if (wynik == 1)
                     {
-                        Label4.Text = "Uczeń został dodany poprawnie";
-                        Label4.Visible = true;
-                        TextBoxImie.Text = "";
-                        TextBoxNazwisko.Text = "";
-                        TextBoxEmail.Text = "";
-                        TextBoxLogin.Text = "";
+                        Label9.Text = "Przedmiot został dodany poprawnie";
+                        Label9.Visible = true;
+                        TextBoxPrzedmiot.Text = "";
                         GridView1.DataBind();
                     }
                     else
                     {
-                        Label4.Text = "* Błąd";
-                        Label4.Visible = true;
+                        Label9.Text = "* Błąd";
+                        Label9.Visible = true;
                     }
                 }
                 else
                 {
-                    Label4.Text = "* Użytkownik o podanym loginie już istnieje w bazie";
-                    Label4.Visible = true;
+                    Label9.Text = "* Przedmiot już istnieje w bazie";
+                    Label9.Visible = true;
                 }
             }
-        }
-
-        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
