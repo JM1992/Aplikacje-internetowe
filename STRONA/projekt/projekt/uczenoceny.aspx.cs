@@ -9,10 +9,12 @@ using System.Configuration;
 
 namespace projekt
 {
-    public partial class uczen : System.Web.UI.Page
+    public partial class uczenoceny : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Label5.Visible = false;
+
             if (Session["zalogowany"] != null)
             {
                 if ((int)Session["zalogowany"] == 1)
@@ -56,6 +58,36 @@ namespace projekt
             else
             {
                 Server.Transfer("Glowna.aspx");
+            }
+        }
+
+
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            string idprzedmiot = DropDownList1.SelectedValue.ToString();
+
+            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString))
+            {
+                string polecenie = "SELECT PRZEDMIOT.Nazwa AS Przedmiot,NAUCZYCIEL.Tytul,NAUCZYCIEL.Imie,NAUCZYCIEL.Nazwisko,OCENA.Ocena,OCENA.Komentarz FROM OCENA,LEKCJA,PRZEDMIOT,NAUCZYCIEL WHERE OCENA.ID_Lekcja=LEKCJA.ID_Lekcja AND LEKCJA.ID_Uczen=@iduczen AND LEKCJA.ID_Przedmiot=@idprzedmiot AND LEKCJA.ID_Przedmiot=PRZEDMIOT.ID_Przedmiot AND LEKCJA.ID_Nauczyciel=NAUCZYCIEL.ID_Nauczyciel";
+                SqlCommand cmd = new SqlCommand(polecenie, con);
+                cmd.Parameters.AddWithValue("@iduczen", Session["id"].ToString());
+                cmd.Parameters.AddWithValue("@idprzedmiot", idprzedmiot);
+                con.Open();
+                using (SqlDataReader rdr = cmd.ExecuteReader())
+                {
+                    if (!rdr.HasRows)
+                    {
+                        Label5.Text = "* Brak ocen z tego przedmiotu.";
+                        Label5.Visible = true;
+                        GridView1.DataBind();
+                    }
+                    else
+                    {
+                        GridView1.DataSource = rdr;
+                        GridView1.DataBind();
+                    }
+                }
             }
         }
     }

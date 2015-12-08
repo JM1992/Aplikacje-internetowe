@@ -16,7 +16,8 @@
 <body>
     <form id="form1" runat="server">
     <div class="container">
-        <div>
+        
+        <div class="naglowek">
             INFORMACJE<br />
             <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
             <br />
@@ -31,10 +32,8 @@
             <asp:HyperLink ID="HyperLink1" runat="server">Wróć</asp:HyperLink>
         </div>
 
-        <br/>
 
-        <div>
-
+        <div class="ramka">
             Zmiana hasła<br />
             Aktualne hasło:
             <asp:TextBox ID="TextBox1" runat="server" TextMode="Password"></asp:TextBox>
@@ -55,7 +54,6 @@
             <asp:Button ID="Button1" runat="server" onclick="Button1_Click" Text="Zmień" />
             <br />
             <asp:Label ID="Label5" runat="server" ForeColor="Red" Text="*" Visible="False"></asp:Label>
-
         </div>
     </div>
     </form>

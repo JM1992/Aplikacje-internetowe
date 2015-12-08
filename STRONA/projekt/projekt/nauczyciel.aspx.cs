@@ -57,11 +57,5 @@ namespace projekt
                 Server.Transfer("Glowna.aspx");
             }
         }
-
-        protected void ButtonWyloguj_Click(object sender, EventArgs e)
-        {
-            Session["zalogowany"] = null;
-            Server.Transfer("Glowna.aspx");
-        }
     }
 }

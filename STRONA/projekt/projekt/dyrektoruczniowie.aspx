@@ -16,7 +16,8 @@
 <body>
     <form id="form1" runat="server">
     <div class="container">
-        <div>
+        
+        <div class="naglowek">
             INFORMACJE<br />
             <asp:Label ID="Label5" runat="server" Text="Label"></asp:Label>
             <br />
@@ -30,9 +31,8 @@
             <asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="~/haslo.aspx">Zmień hasło</asp:HyperLink>
         </div>
 
-        <br/>
 
-        <div>
+        <div class="menu">
             <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/dyrektor.aspx">Nauczyciele</asp:HyperLink>
             &nbsp;&nbsp;&nbsp;
             <asp:HyperLink ID="HyperLink4" runat="server" 
@@ -50,10 +50,8 @@
             <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Wyloguj.aspx">Wyloguj</asp:HyperLink>
         </div>
 
-        <br />
         
-        <div>
-
+        <div class="ramka">
             Dodaj nowego ucznia<br />
             Imię:
               <asp:TextBox ID="TextBoxImie" runat="server"></asp:TextBox>
@@ -108,15 +106,14 @@
 
         </div>
 
-        <br />
 
-        <div>
-        
+        <div class="ramka">        
             <asp:GridView ID="GridView1" runat="server" AllowSorting="True" 
                 AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" 
                 BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="ID_Uczen" 
                 DataSourceID="SqlDataSource1" ForeColor="Black" GridLines="Horizontal" 
-                onselectedindexchanged="GridView1_SelectedIndexChanged">
+                onselectedindexchanged="GridView1_SelectedIndexChanged" 
+                HorizontalAlign="Center">
                 <Columns>
                     <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
                     <asp:BoundField DataField="ID_Uczen" HeaderText="ID_Uczen" 
@@ -141,7 +138,9 @@
                 DeleteCommand="DELETE FROM [UCZEN] WHERE [ID_Uczen] = @ID_Uczen" 
                 InsertCommand="INSERT INTO [UCZEN] ([Imie], [Nazwisko], [Email], [Login]) VALUES (@Imie, @Nazwisko, @Email, @Login)" 
                 SelectCommand="SELECT [ID_Uczen], [Imie], [Nazwisko], [Email], [Login] FROM [UCZEN]" 
-                UpdateCommand="UPDATE [UCZEN] SET [Imie] = @Imie, [Nazwisko] = @Nazwisko, [Email] = @Email, [Login] = @Login WHERE [ID_Uczen] = @ID_Uczen">
+                
+                UpdateCommand="UPDATE [UCZEN] SET [Imie] = @Imie, [Nazwisko] = @Nazwisko, [Email] = @Email, [Login] = @Login WHERE [ID_Uczen] = @ID_Uczen" 
+                onselecting="SqlDataSource1_Selecting">
                 <DeleteParameters>
                     <asp:Parameter Name="ID_Uczen" Type="Int32" />
                 </DeleteParameters>
@@ -158,8 +157,7 @@
                     <asp:Parameter Name="Login" Type="String" />
                     <asp:Parameter Name="ID_Uczen" Type="Int32" />
                 </UpdateParameters>
-            </asp:SqlDataSource>
-        
+            </asp:SqlDataSource>        
         </div>
     </div>
     </form>

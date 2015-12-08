@@ -16,7 +16,8 @@
 <body>
     <form id="form1" runat="server">
     <div class="container">
-        <div>
+        
+        <div class="naglowek">
             INFORMACJE<br />
             <asp:Label ID="Label5" runat="server" Text="Label"></asp:Label>
             <br />
@@ -30,9 +31,7 @@
             <asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="~/haslo.aspx">Zmień hasło</asp:HyperLink>
         </div>
 
-        <br />
-
-        <div>
+        <div class="menu">
             <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/dyrektor.aspx">Nauczyciele</asp:HyperLink>
             &nbsp;&nbsp;&nbsp;
             <asp:HyperLink ID="HyperLink4" runat="server" 
@@ -50,10 +49,8 @@
             <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Wyloguj.aspx">Wyloguj</asp:HyperLink>
         </div>
 
-        <br />
         
-        <div>
-
+        <div class="ramka">
             Dodaj 
             nową klasę<br />
             Nazwa:
@@ -69,14 +66,13 @@
 
         </div>
 
-        <br/>
 
-        <div>
-            
+        <div class="ramka">    
             <asp:GridView ID="GridView1" runat="server" AllowSorting="True" 
                 AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" 
                 BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="ID_Klasa" 
-                DataSourceID="SqlDataSource1" ForeColor="Black" GridLines="Horizontal">
+                DataSourceID="SqlDataSource1" ForeColor="Black" GridLines="Horizontal" 
+                HorizontalAlign="Center">
                 <Columns>
                     <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
                     <asp:BoundField DataField="ID_Klasa" HeaderText="ID_Klasa" 
@@ -111,17 +107,15 @@
             </asp:SqlDataSource>            
         </div>
 
-        <br />
 
-        <div>
-
+        <div class="ramka">
             Przypisz uczniów do klas<br />
-            Wyświetl ucziów nie należących do żadnej klasy:
+            Wyświetl uczniów:
             <asp:Button ID="Button4" runat="server" onclick="Button4_Click" 
                 Text="Wyświetl" />
-            <br />
-            <asp:CheckBoxList ID="CheckBoxList1" runat="server">
+            <asp:CheckBoxList ID="CheckBoxList1" runat="server" RepeatColumns="3">
             </asp:CheckBoxList>
+            <br />
             Wybierz klasę:
             <asp:DropDownList ID="DropDownList1" runat="server" 
                 DataSourceID="SqlDataSource1" DataTextField="Nazwa" 
@@ -136,10 +130,8 @@
 
         </div>
 
-        <br />
 
-        <div>
-
+        <div class="ramka">
             Wyświetl uczniów z danej klasy<br />
             Wybierz klasę:
             <asp:DropDownList ID="DropDownList2" runat="server" 
@@ -150,23 +142,18 @@
             <asp:Button ID="Button3" runat="server" Text="Wyświetl" 
                 onclick="Button3_Click" />
             <br />
-            <br />
-            <div>
-
-                <asp:GridView ID="GridView2" runat="server" BackColor="White" 
-                    BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" 
-                    ForeColor="Black" GridLines="Horizontal">
-                    <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
-                    <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
-                    <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
-                    <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
-                    <SortedAscendingCellStyle BackColor="#F7F7F7" />
-                    <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
-                    <SortedDescendingCellStyle BackColor="#E5E5E5" />
-                    <SortedDescendingHeaderStyle BackColor="#242121" />
-                </asp:GridView>
-
-            </div>
+            <asp:GridView ID="GridView2" runat="server" BackColor="White" 
+                BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" 
+                ForeColor="Black" GridLines="Horizontal" HorizontalAlign="Center">
+                <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
+                <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
+                <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
+                <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
+                <SortedAscendingCellStyle BackColor="#F7F7F7" />
+                <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
+                <SortedDescendingCellStyle BackColor="#E5E5E5" />
+                <SortedDescendingHeaderStyle BackColor="#242121" />
+            </asp:GridView>
         </div>
 
     </div>

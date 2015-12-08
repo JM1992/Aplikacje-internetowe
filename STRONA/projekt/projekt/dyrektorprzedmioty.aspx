@@ -16,7 +16,8 @@
 <body>
     <form id="form1" runat="server">
     <div class="container">
-        <div>
+        
+        <div class="naglowek">
             INFORMACJE<br />
             <asp:Label ID="Label5" runat="server" Text="Label"></asp:Label>
             <br />
@@ -30,9 +31,7 @@
             <asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="~/haslo.aspx">Zmień hasło</asp:HyperLink>
         </div>
 
-        <br/>
-
-        <div>
+        <div class="menu">
             <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/dyrektor.aspx">Nauczyciele</asp:HyperLink>
             &nbsp;&nbsp;&nbsp;
             <asp:HyperLink ID="HyperLink4" runat="server" 
@@ -50,10 +49,8 @@
             <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Wyloguj.aspx">Wyloguj</asp:HyperLink>
         </div>
 
-        <br />
         
-        <div>
-
+        <div class="ramka">
             Dodaj 
             nowy przedmiot<br />
             Nazwa:
@@ -69,15 +66,13 @@
 
         </div>
 
-        <br/>
 
-        <div>
-            
+        <div class="ramka">           
             <asp:GridView ID="GridView1" runat="server" AllowSorting="True" 
                 AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" 
                 BorderStyle="None" BorderWidth="1px" CellPadding="4" 
                 DataKeyNames="ID_Przedmiot" DataSourceID="SqlDataSource1" ForeColor="Black" 
-                GridLines="Horizontal">
+                GridLines="Horizontal" HorizontalAlign="Center">
                 <Columns>
                     <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
                     <asp:BoundField DataField="ID_Przedmiot" HeaderText="ID_Przedmiot" 
@@ -109,10 +104,8 @@
                     <asp:Parameter Name="Nazwa" Type="String" />
                     <asp:Parameter Name="ID_Przedmiot" Type="Int32" />
                 </UpdateParameters>
-            </asp:SqlDataSource>
-            
+            </asp:SqlDataSource>           
         </div>
-
     </div>
     </form>
 </body>

@@ -15,7 +15,6 @@ namespace projekt
         {
             Label9.Visible = false;
             Label10.Visible = false;
-            //CheckBoxList1.Items.Clear();
 
             if (Session["zalogowany"] != null)
             {
@@ -118,17 +117,16 @@ namespace projekt
                 if (li.Selected)
                 {
                     string iduczen = li.Value.ToString();
-
                     using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString))
                     {
                         string polecenie = "UPDATE UCZEN SET ID_Klasa=@idklasa WHERE ID_Uczen=@iduczen";
                         SqlCommand cmd = new SqlCommand(polecenie, con);
                         cmd.Parameters.AddWithValue("@idklasa", idklasa);
-                        cmd.Parameters.AddWithValue("@iduczen", Convert.ToInt32(iduczen));
+                        cmd.Parameters.AddWithValue("@iduczen", iduczen);
                         con.Open();
                         int wynik = cmd.ExecuteNonQuery();
                         con.Close();
-                        if (wynik >= 1)
+                        if (wynik == 1)
                         {
                             Label10.Text = "* Dodano poprawnie";
                             Label10.Visible = true;
@@ -138,17 +136,11 @@ namespace projekt
                             Label10.Text = "* Błąd";
                             Label10.Visible = true;
                         }
-                    } 
+                    }
                 }
             }
+            
 
-            wyswietl_uczniow_bez_klasy();
-        }
-
-
-
-        protected void Button4_Click(object sender, EventArgs e)
-        {
             wyswietl_uczniow_bez_klasy();
         }
 
@@ -157,7 +149,6 @@ namespace projekt
         private void wyswietl_uczniow_bez_klasy()
         {
             CheckBoxList1.Items.Clear();
-
             using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString))
             {
                 string polecenie = "SELECT ID_Uczen, Imie, Nazwisko FROM UCZEN WHERE ID_Klasa IS NULL";
@@ -165,14 +156,9 @@ namespace projekt
                 con.Open();
                 using (SqlDataReader rdr = cmd.ExecuteReader())
                 {
-                    if (rdr.Read() == null)
+                    if (rdr.Read())
                     {
-                        Label10.Text = "* Brak uczniów";
-                        Label10.Visible = true;
-                    }
-                    else
-                    {
-                        while (rdr.Read())
+                        do
                         {
                             string imie = rdr["Imie"].ToString();
                             string nazwisko = rdr["Nazwisko"].ToString();
@@ -181,10 +167,22 @@ namespace projekt
 
                             CheckBoxList1.Items.Add(new ListItem(tekst, iduczen));
                         }
-                        CheckBoxList1.DataBind();
+                        while (rdr.Read());
+                    }
+                    else 
+                    {
+                        Label10.Text = "* Brak uczniów";
+                        Label10.Visible = true;
                     }
                 }
             }
+        }
+
+
+
+        protected void Button4_Click(object sender, EventArgs e)
+        {
+            wyswietl_uczniow_bez_klasy();
         }
     }
 }
